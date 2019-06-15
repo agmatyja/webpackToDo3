@@ -1,6 +1,6 @@
 import React from 'react';
 class Title extends React.Component {
-	render() {
+    render() {
         return (
             <h1>{this.props.title} {this.props.count}</h1>    
         );

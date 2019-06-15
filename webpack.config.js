@@ -9,47 +9,47 @@ const plugins = [new HtmlWebpackPlugin({
 })];
 
 module.exports = (env) => {
-	if (env === 'production') {
-		plugins.push(
-			new OptimizeJsPlugin({
-				sourceMap: false
-			})
-		)
-	}
-	
-	return {
-		mode: env || 'production',
-		entry: './src/index.js',
-		output: {
-			path: path.resolve(__dirname, 'build'),
-			filename: 'app.bundle.js'
-		},
-		optimization: {
-			minimize: false
-		},
-		plugins: plugins,
-			
-		module: {
-			rules: [
-				{
-					test: /\.js$/,
-					loader: "babel-loader"
-				},
-				{
-					test: /\.css$/,
-					use: [
-						{ loader: 'style-loader'},
-						{
-							loader: 'css-loader',
-							options: {
-								modules: true
-							}
-						}
-					]   
-				}
-			]
-			
-		}
-		
-	}
+    if (env === 'production') {
+        plugins.push(
+            new OptimizeJsPlugin({
+                sourceMap: false
+            })
+        )
+    }
+    
+    return {
+        mode: env || 'production',
+        entry: './src/index.js',
+        output: {
+            path: path.resolve(__dirname, 'build'),
+            filename: 'app.bundle.js'
+        },
+        optimization: {
+            minimize: false
+        },
+        plugins: plugins,
+            
+        module: {
+            rules: [
+                {
+                    test: /\.js$/,
+                    loader: "babel-loader"
+                },
+                {
+                    test: /\.css$/,
+                    use: [
+                        { loader: 'style-loader'},
+                        {
+                            loader: 'css-loader',
+                            options: {
+                                modules: true
+                            }
+                        }
+                    ]   
+                }
+            ]
+            
+        }
+        
+    }
 };
